@@ -1,13 +1,13 @@
 <?php
 //Why is this important? Why does localhost have to be first?
-$mysqli = new mysqli('localhost', 'root', 'root', 'todo-list2.0');
+$mysqli = new mysqli('localhost', 'root', 'root', 'todo-list2.0');//our database connects to the database here
 //$mysqli->connect_error then we want it to die and have this message
 if ($mysqli->connect_error) {
 	die('Connect Error (' . $mysqli->connect_errno .')'
 		. $mysqli->connect_error);
 }
 else{
-	echo"Connection made";
+	//echo"Connection made";
 }
 $mysqli->close();
 
