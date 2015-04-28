@@ -8,7 +8,26 @@
 	<div class="wrap">
 		<div class="task-list">
 			<ul>
-				<?php require("includes/connect.php"); ?>
+				<?php require("includes/connect.php");
+				$mysqli = new mysqli('localhost', 'root', 'root', 'tasks');//these are two functions
+				$query = "SELECT * FROM tasks ORDER BY date ASC, time ASC";//that we have created
+				if ($result = $mysqli->query($query)) {
+					$numrows = $result->num_rows;
+					if ($numrows>0) {//this is our nested if statement
+						while($row = $result->fetch_assoc()){
+							$task_id = $row['id'];
+							$task_name = $row['task'];
+
+							echo "<li>
+							<span>'.$task_name'
+							";
+						}
+					}
+				}
+
+
+				?>
+
 			</ul>
 		</div>
 	<form class="add-new-task" autocomplete="off">
